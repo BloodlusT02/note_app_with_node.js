@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white">
+    <!-- Note Form -->
+    <div class="flex justify-center pt-10">
+        <div class="bg-zinc-700 w-1/2 h-56 flex flex-col justify-center px-6 rounded-lg" id="form-container">
+            <form action="/create" method="post" class="flex flex-col gap-2">
+                <input name="title" type="text" class="block bg-zinc-500 text-lg px-4 py-2 w-full rounded outline-none" placeholder="Note Title">
+                <textarea name="description" class="block bg-zinc-500 resize-none px-4 py-2 text-lg w-full rounded outline-none" placeholder="Note Description" id=""></textarea>
+                <input type="submit" class="bg-blue-600 px-6 py-2 text-lg rounded cursor-pointer w-fit hover:bg-blue-700 transition" value="Submit">
+            </form>
+        </div>
+    </div>
+    <!-- Notes -->
+    <div class="px-8">
+        <h1 class="text-center my-8 text-orange-500 font-semibold">Your Notes</h1>
+        <div class="flex gap-3 justify-center flex-wrap">
+
+            <% if(files.length   > 0){ %>
+                <% files.forEach(function(file){ %>
+                    <div class="w-80 bg-zinc-600 p-2 rounded">
+                        <h1 class="text-3xl"><%= file.replace("/\.txt$/i", "") %></h1>
+                        <div class="flex justify-between mt-2">
+                            <a class="block text-blue-500 font-medium" href="details/<%= file %>">Read more</a>
+                            <a class="block text-gray-400 font-medium" href="edit/<%= file %>">edit filename</a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else{ %>
+                <h1>No Task yet</h1>
+            <% } %>
+            
+        </div>
+    </div>
+</body>
+</html>

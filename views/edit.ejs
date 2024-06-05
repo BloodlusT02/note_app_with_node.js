@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <a href="/" class="block text-blue-500 cursor-pointer px-10 pt-8"
+      ><i class="ri-arrow-left-s-line text-lg"></i> Go Back</a
+    >
+
+    <!-- Note Form -->
+    <div class="flex justify-center pt-10">
+      <div
+        class="bg-zinc-700 w-1/2 h-56 flex flex-col justify-center px-6 rounded-lg"
+        id="form-container"
+      >
+        <form action="/edit" method="post" class="flex flex-col gap-2">
+          <input
+            name="privious"
+            type="text"
+            class="block bg-zinc-500 text-lg px-4 py-2 w-full rounded outline-none"
+            placeholder="Note Title"
+            value="<%= filename %>"
+          />
+          <input
+            name="new"
+            class="block bg-zinc-500 resize-none px-4 py-2 text-lg w-full rounded outline-none"
+            placeholder="Note Description"
+          >
+          <input
+            type="submit"
+            class="bg-green-600 px-6 py-2 text-lg rounded cursor-pointer w-fit hover:bg-green-700 transition"
+            value="Submit"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
